@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Service</title>
+    <link rel="stylesheet" href="css/bootswatchTheme.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Restaurant Service</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html"
+                  >Home
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" asp-controller="Menu" asp-action="Create"
+                  >Add Menu</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <main role="main" class="pb-3">
+        <form method="post" asp-action="Edit">
+          <div class="border p-3 mt-4">
+            <div class="row pb-2">
+              <h2>Edit Menu</h2>
+              <hr />
+            </div>
+            <div class="mb-3">
+              <label name="Name">Name</label>
+              <input name="Name" id="Name" class="form-control" />
+              <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+              <label name="Price">Price</label>
+              <input name="Price" id="Price" class="form-control" />
+              <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+              <select name="Category" id="Category">
+                <option value="none" selected disabled hidden>
+                  Select a Category
+                </option>
+                <option name="food">Food</option>
+                <option name="ffood">Fast Food</option>
+                <option name="beverage">Beverage</option>
+              </select>
+              <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-success" style="width: 150px">
+              Update
+            </button>
+            <a
+              asp-controller="Home"
+              asp-action="Index"
+              class="btn btn-info"
+              style="width: 150px"
+            >
+              Back To Home
+            </a>
+            <a
+              asp-controller="Menu"
+              asp-action="Index"
+              class="btn btn-danger"
+              style="width: 150px"
+            >
+              Back To Menu
+            </a>
+          </div>
+        </form>
+      </main>
+    </div>
+    <footer class="border-top footer text-muted">
+      <div class="container">
+        &copy; 2022 - RestaurantService -
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+      </div>
+    </footer>
+    <!-- <script src="~/lib/jquery/dist/jquery.min.js"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/edit.js"></script>
+  </body>
+</html>
