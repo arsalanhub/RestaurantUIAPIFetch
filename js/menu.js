@@ -14,18 +14,25 @@ async function fun() {
                      <p class="card-text">
                          Category: <span class="badge bg-secondary">${obj[i].category}</span>
                      </p>
-                     <a class="btn btn-info btn-sm" id="${obj[i].id}">Edit</a>
-                     <a class="btn btn-danger btn-sm">Delete</a>
+                     <a class="btn btn-info btn-sm" id="E-${obj[i].id}">Edit</a>
+                     <a class="btn btn-danger btn-sm" id="D-${obj[i].id}">Delete</a>
                   </div>
             </div>
          </div>`;
       // addMenu(obj[i].name, obj[i].price, obj[i].category, obj[i].id)
     }
     for (let i = 0; i < obj.length; i++) {
-      let element=document.getElementById(obj[i].id)
+      let element=document.getElementById(`E-${obj[i].id}`)
       element.onclick= function() {
         localStorage.setItem("id", obj[i].id)
         window.location.replace("edit.html")
+      }
+    }
+    for (let i = 0; i < obj.length; i++) {
+      let element=document.getElementById(`D-${obj[i].id}`)
+      element.onclick= function() {
+        localStorage.setItem("id", obj[i].id)
+        window.location.replace("delete.html")
       }
     }
   } catch (error) {

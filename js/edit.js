@@ -30,7 +30,7 @@ async function fun() {
     }
     let Update = document.getElementById("update");
     Update.addEventListener("click", function () {
-      fetch(`https://localhost:7157/api/Menu/${preserveIdType}`, {
+      fetch('https://localhost:7157/api/Menu/' + preserveIdType, {
         method: "PUT",
         body: JSON.stringify({
           id: preserveIdType,

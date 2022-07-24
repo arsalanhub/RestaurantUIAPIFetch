@@ -46,8 +46,33 @@
     </header>
     <div class="container">
       <main role="main" class="pb-3">
-        <h1>Menu Items</h1>
-        <div class="row" id="row"></div>
+        <form method="post">
+            <div class="border p-3 mt-4">
+                <div class="row pb-2">
+                    <h2>Delete Menu</h2>
+                    <hr/>
+                </div>
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input id="Name" class="form-control" disabled/>
+                </div>
+                <div class="mb-3">
+                    <label>Price</label>
+                    <input id="Price" class="form-control" disabled/>
+                </div>
+                <div class="mb-3">
+                    <select name="Category" id="Category" disabled>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-danger" style="width:150px" id="delete">Delete</button>
+                <a class="btn btn-info" style="width:150px">
+                    Back To Home
+                </a>
+                <a class="btn btn-success" style="width:150px">
+                    Back To Menu
+                </a>
+            </div>
+        </form>
       </main>
     </div>
 
@@ -63,6 +88,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/menu.js"></script>
+    <script src="js/delete.js"></script>
   </body>
 </html>
