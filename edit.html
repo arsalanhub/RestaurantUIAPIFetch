@@ -46,7 +46,7 @@
     </header>
     <div class="container">
       <main role="main" class="pb-3">
-        <form method="post" asp-action="Edit">
+        <form method="post" action="https://localhost:7157/api/Menu/">
           <div class="border p-3 mt-4">
             <div class="row pb-2">
               <h2>Edit Menu</h2>
@@ -55,27 +55,19 @@
             <div class="mb-3">
               <label name="Name">Name</label>
               <input name="Name" id="Name" class="form-control" />
-              <span asp-validation-for="Name" class="text-danger"></span>
+              <span class="text-danger"></span>
             </div>
             <div class="mb-3">
               <label name="Price">Price</label>
               <input name="Price" id="Price" class="form-control" />
-              <span asp-validation-for="Price" class="text-danger"></span>
+              <span class="text-danger"></span>
             </div>
             <div class="mb-3">
               <select name="Category" id="Category">
-                <option value="none" selected disabled hidden>
-                  Select a Category
-                </option>
-                <option name="food">Food</option>
-                <option name="ffood">Fast Food</option>
-                <option name="beverage">Beverage</option>
               </select>
               <span asp-validation-for="Category" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-success" style="width: 150px">
-              Update
-            </button>
+            <input type="submit" class="btn btn-success" id="update" style="width: 150px" value="Update" />
             <a
               asp-controller="Home"
               asp-action="Index"
