@@ -24,6 +24,7 @@ async function fun() {
     for (let i = 0; i < obj.length; i++) {
       let element=document.getElementById(obj[i].id)
       element.onclick= function() {
+        localStorage.setItem("id", obj[i].id)
         window.location.replace("edit.html")
       }
     }
