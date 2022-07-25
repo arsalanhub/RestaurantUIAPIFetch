@@ -11,7 +11,6 @@ async function fun() {
     console.log(error);
   }
   let Id = localStorage.getItem("id");
-  let preserveIdType = Id;
   parseInt(Id);
   let url = "https://localhost:7157/api/Menu";
   try {
@@ -30,10 +29,14 @@ async function fun() {
     }
     let Update = document.getElementById("update");
     Update.addEventListener("click", function () {
-      fetch('https://localhost:7157/api/Menu/' + preserveIdType, {
+      // let Name = document.getElementById("Name");
+      // let Price = document.getElementById("Price");
+      // let Category = document.getElementById("Category");
+      console.log(Name.value, Price.value, Category.value)
+      fetch('https://localhost:7157/api/Menu/'+Id, {
         method: "PUT",
-        body: JSON.stringify({
-          id: preserveIdType,
+        body : JSON.stringify({
+          id: Id,
           name: Name.value,
           price: Price.value,
           category: Category.value
@@ -42,8 +45,8 @@ async function fun() {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+        // .then((response) => response.json())
+        // .then((json) => console.log(json));
     });
   } catch (error) {}
 }

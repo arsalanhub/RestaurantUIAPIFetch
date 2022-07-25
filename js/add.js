@@ -14,7 +14,22 @@ async function fun() {
   btn.addEventListener("click", function() {
     console.log("clicked")
     let Name=document.getElementById("Name")
-    
+    let Price=document.getElementById("Price")
+    let Category=document.getElementById("Category")
+    fetch('https://localhost:7157/api/Menu/', {
+        method: "POST",
+        body: JSON.stringify({
+          name: Name.value,
+          price: Price.value,
+          category: Category.value
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    window.location.replace("menu.html")
   })
 }
 

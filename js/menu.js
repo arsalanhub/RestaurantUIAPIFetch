@@ -3,6 +3,7 @@ async function fun() {
   try {
     let res = await fetch(url);
     let obj = await res.json();
+    console.log(url)
     console.log(obj);
     var row = document.getElementById("row");
     for (let i = 0; i < obj.length; i++) {
@@ -19,7 +20,6 @@ async function fun() {
                   </div>
             </div>
          </div>`;
-      // addMenu(obj[i].name, obj[i].price, obj[i].category, obj[i].id)
     }
     for (let i = 0; i < obj.length; i++) {
       let element=document.getElementById(`E-${obj[i].id}`)
