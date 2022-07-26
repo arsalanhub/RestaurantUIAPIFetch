@@ -33,7 +33,7 @@ async function fun() {
       // let Price = document.getElementById("Price");
       // let Category = document.getElementById("Category");
       console.log(Name.value, Price.value, Category.value)
-      let fetch_obj = await fetch('https://localhost:7157/api/Menu/'+Id, {
+      fetch(`https://localhost:7157/api/Menu/${Id}`, {
         method: "PUT",
         body : JSON.stringify({
           id: Id,
@@ -45,7 +45,8 @@ async function fun() {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-         .then((json) =>  console.log("updated"));
+      .then((response) => window.location.replace("menu.html"))
+      .then((json) => console.log(json));
     });
   } catch (error) {}
 }

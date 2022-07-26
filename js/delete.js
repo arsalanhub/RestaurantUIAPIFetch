@@ -27,7 +27,7 @@ async function fun() {
           "Access-Control-Allow-Origin": "*"
         },
       })
-        .then((response) => response.json())
+        .then((response) => window.location.replace("menu.html"))
         .then((json) => console.log(json));
     });
     // window.location.replace("menu.html")

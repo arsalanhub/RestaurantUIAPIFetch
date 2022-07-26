@@ -16,7 +16,7 @@ async function fun() {
     let Name=document.getElementById("Name")
     let Price=document.getElementById("Price")
     let Category=document.getElementById("Category")
-    fetch('https://localhost:7157/api/Menu/', {
+    fetch('https://localhost:7157/api/Menu', {
         method: "POST",
         body: JSON.stringify({
           name: Name.value,
@@ -27,9 +27,9 @@ async function fun() {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        .then((response) => response.json())
+        .then((response) => window.location.replace("menu.html"))
         .then((json) => console.log(json));
-    window.location.replace("menu.html")
+    // window.location.replace("menu.html")
   })
 }
 
