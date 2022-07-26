@@ -1,11 +1,11 @@
 async function fun() {
   try {
-    let jsonURL = await fetch("./categories.json");
+    let jsonURL = await fetch("https://localhost:7157/api/Category");
     let jsonObj = await jsonURL.json();
     let select = document.getElementById("Category");
     select.innerHTML += `<option value="none" selected disabled hidden>Select a Category</option>`;
     for (let i = 0; i < jsonObj.length; i++) {
-      select.innerHTML += `<option name="${jsonObj[i]}">${jsonObj[i]}</option>`;
+      select.innerHTML += `<option name="${jsonObj[i].name}">${jsonObj[i].name}</option>`;
     }
   } catch (error) {
     console.log(error);
