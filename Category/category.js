@@ -45,6 +45,7 @@ async function fun() {
       let ele = document.getElementById(`E${obj[i].id}`);
       let Name = document.getElementById(`N${obj[i].id}`);
       let saveBtn = document.getElementById(`S${obj[i].id}`);
+      let deleteBtn = document.getElementById(`D${obj[i].id}`);
       ele.addEventListener("click", function () {
         Name.innerHTML = `<input type="text" placeholder="Update category here!!" id="text-${obj[i].id}"/>`;
         saveBtn.disabled = false;
@@ -60,6 +61,17 @@ async function fun() {
           }),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => window.location.replace("index.html"))
+          .then((json) => console.log(json));
+      });
+      deleteBtn.addEventListener("click", function () {
+        fetch(`https://localhost:7157/api/Category/${obj[i].id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/josn; charset=UTF-8",
+            "Access-Control-Allow-Origin": "*",
           },
         })
           .then((response) => window.location.replace("index.html"))
