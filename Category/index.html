@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Service</title>
-    <link rel="stylesheet" href="css/bootswatchTheme.css" />
+    <link rel="stylesheet" href="../css/bootswatchTheme.css" />
   </head>
   <body>
     <header>
@@ -26,38 +26,40 @@
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html"
+                <a class="nav-link active" href="../index.html"
                   >Home
                   <span class="visually-hidden">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="../menu.html">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="add.html"
-                  >Add Menu</a
-                >
+                <a class="nav-link" href="../add.html">Add Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="Category/index.html"
-                  >Add Category</a
-                >
+                <a class="nav-link" href="index.html">Add Category</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
+
     <div class="container">
-      <main role="main" class="pb-3">
-        <h1>Menu Items</h1>
-        <!-- <button onclick="deleteAll()" class="btn btn-danger">Delete All</button> -->
-        <select name="Category" id="Category" class="my-3" onclick="filterFun()"></select>
-        <button class="btn btn-info btn-sm" onclick="sortLowtoHigh()">Price: Low to High</button>
-        <button class="btn btn-info btn-danger btn-sm" onclick="fun()">Reset</button>
-        <div class="row" id="row"></div>
-      </main>
+      <table class="table my-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Save</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
     </div>
 
     <footer class="border-top footer text-muted">
@@ -72,6 +74,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-    <script src="js/menu.js"></script>
+    <script src="category.js"></script>
   </body>
 </html>
