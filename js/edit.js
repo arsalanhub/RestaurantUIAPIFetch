@@ -28,12 +28,12 @@ async function fun() {
       }
     }
     let Update = document.getElementById("update");
-    Update.addEventListener("click", function () {
+    Update.addEventListener("click", async function () {
       // let Name = document.getElementById("Name");
       // let Price = document.getElementById("Price");
       // let Category = document.getElementById("Category");
       console.log(Name.value, Price.value, Category.value)
-      fetch('https://localhost:7157/api/Menu/'+Id, {
+      let fetch_obj = await fetch('https://localhost:7157/api/Menu/'+Id, {
         method: "PUT",
         body : JSON.stringify({
           id: Id,
@@ -45,8 +45,7 @@ async function fun() {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-        // .then((response) => response.json())
-        // .then((json) => console.log(json));
+         .then((json) =>  console.log("updated"));
     });
   } catch (error) {}
 }

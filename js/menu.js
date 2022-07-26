@@ -1,9 +1,31 @@
+async function deleteAll() {
+  let url = "https://localhost:7157/api/Menu";
+  try {
+    let res = await fetch(url);
+    let obj = await res.json();
+    for (let i = 0; i < obj.length; i++) 
+    {
+      await fetch(`https://localhost:7157/api/Menu/${obj[i].id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/josn; charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function fun() {
   let url = "https://localhost:7157/api/Menu";
   try {
     let res = await fetch(url);
     let obj = await res.json();
-    console.log(url)
+    console.log(url);
     console.log(obj);
     var row = document.getElementById("row");
     for (let i = 0; i < obj.length; i++) {
@@ -22,18 +44,18 @@ async function fun() {
          </div>`;
     }
     for (let i = 0; i < obj.length; i++) {
-      let element=document.getElementById(`E-${obj[i].id}`)
-      element.onclick= function() {
-        localStorage.setItem("id", obj[i].id)
-        window.location.replace("edit.html")
-      }
+      let element = document.getElementById(`E-${obj[i].id}`);
+      element.onclick = function () {
+        localStorage.setItem("id", obj[i].id);
+        window.location.replace("edit.html");
+      };
     }
     for (let i = 0; i < obj.length; i++) {
-      let element=document.getElementById(`D-${obj[i].id}`)
-      element.onclick= function() {
-        localStorage.setItem("id", obj[i].id)
-        window.location.replace("delete.html")
-      }
+      let element = document.getElementById(`D-${obj[i].id}`);
+      element.onclick = function () {
+        localStorage.setItem("id", obj[i].id);
+        window.location.replace("delete.html");
+      };
     }
   } catch (error) {
     console.log(error);
