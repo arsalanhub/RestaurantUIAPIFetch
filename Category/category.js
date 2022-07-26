@@ -1,8 +1,36 @@
+async function saveCategoryFun() {
+  let saveBtn = (document.getElementById("saveNewCategories").disabled = true);
+  let val = document.getElementById("newCategory");
+  fetch("https://localhost:7157/api/Category", {
+    method: "POST",
+    body: JSON.stringify({
+      name: val.value,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+      "Access-Control-Allow-Origin": "*",
+    },
+  })
+    .then((response) => window.location.replace("index.html"))
+    .then((json) => console.log(json));
+}
+
+function addCategoryFun() {
+  let ele = document.getElementById("tableBody");
+  ele.innerHTML += `<tr>
+                        <td></td>
+                        <td><input type="text" id="newCategory"/><td>
+                        <td><td>
+                        <td><td>
+                     </tr>`;
+  let saveBtn = document.getElementById("saveNewCategories");
+  saveBtn.disabled = false;
+}
+
 async function fun() {
   try {
     let fetchURL = await fetch("https://localhost:7157/api/Category");
     let obj = await fetchURL.json();
-    console.log(obj);
     let ele = document.getElementById("tableBody");
     for (let i = 0; i < obj.length; i++) {
       ele.innerHTML += `<tr>
