@@ -1,3 +1,4 @@
+let global_obj = [];
 async function deleteAll() {
   let url = "https://localhost:7157/api/Menu";
   try {
@@ -35,6 +36,12 @@ async function filterFun() {
     console.log(error);
   }
 }
+function sortLowtoHigh() {
+  global_obj.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  show(global_obj);
+}
 function show(obj) {
   var row = document.getElementById("row");
   row.innerHTML = "";
@@ -67,12 +74,14 @@ function show(obj) {
       window.location.replace("delete.html");
     };
   }
+  global_obj = obj;
 }
 async function fetchCategory() {
   try {
     let jsonURL = await fetch("./categories.json");
     let jsonObj = await jsonURL.json();
     let select = document.getElementById("Category");
+    select.innerHTML = "";
     select.innerHTML += `<option value="none" selected disabled hidden>Select a Category</option>`;
     for (let i = 0; i < jsonObj.length; i++) {
       select.innerHTML += `<option name="${jsonObj[i]}">${jsonObj[i]}</option>`;
